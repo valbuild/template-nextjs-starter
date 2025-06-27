@@ -1,3 +1,5 @@
+# {{projectName}}
+
 This is a [Val Build](https://val.build) bootstrapped with `npm create @valbuild`.
 
 ## Getting Started
