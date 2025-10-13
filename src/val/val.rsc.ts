@@ -4,10 +4,14 @@ import { config } from "../../val.config";
 import valModules from "../../val.modules";
 import { cookies, draftMode, headers } from "next/headers";
 
-const { fetchValStega: fetchVal } = initValRsc(config, valModules, {
+const {
+  fetchValStega: fetchVal,
+  fetchValRouteStega: fetchValRoute,
+  fetchValRouteUrl,
+} = initValRsc(config, valModules, {
   draftMode,
   headers,
   cookies,
 });
 
-export { fetchVal };
+export { fetchVal, fetchValRoute, fetchValRouteUrl };
