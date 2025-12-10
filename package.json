@@ -10,9 +10,9 @@
     "validate": "val validate --fix"
   },
   "dependencies": {
-    "@valbuild/core": "^0.86.3",
-    "@valbuild/next": "^0.86.3",
-    "next": "^15.5.5",
+    "@valbuild/core": "^0.86.2",
+    "@valbuild/next": "^0.86.2",
+    "next": "^16.0.8",
     "prettier": "^3.6.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
