@@ -36,10 +36,10 @@ export default c.define("/src/app/page.val.ts", pageSchema, {
           href: "/val",
         },
         {
-          title: "Val Cloud",
+          title: "Val Admin",
           description:
             "Sign up, add editors and let them update content inside your production app",
-          href: "https://app.val.build",
+          href: "https://admin.val.build",
         },
         {
           title: "Docs",
