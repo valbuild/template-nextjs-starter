@@ -1,7 +1,7 @@
 import { initVal } from "@valbuild/next";
 
 const { s, c, val, config, nextAppRouter } = initVal({
-  defaultTheme: "light",
+  defaultTheme: "dark",
 });
 
 export type { t } from "@valbuild/next";
