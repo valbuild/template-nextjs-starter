@@ -4,7 +4,7 @@
  * It is also used to define the schema for the page.
  *
  */
-import { s, t } from "../../val.config";
+import { s, t } from "../../../val.config";
 
 export const heroSection = s.object({
   type: s.literal("hero"),
@@ -21,7 +21,7 @@ export const docsSection = s.object({
       title: s.string(),
       description: s.string(),
       href: s.string().raw(),
-    })
+    }),
   ),
 });
 export type DocsSection = t.inferSchema<typeof docsSection>;

@@ -1,8 +1,7 @@
 import { ValProvider } from "@valbuild/next";
-import { config } from "../../val.config";
-import type { Metadata } from "next";
+import { config } from "../../../val.config";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { fetchVal } from "@/val/val.rsc";
 import pageVal from "./page.val";
 

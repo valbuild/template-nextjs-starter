@@ -18,7 +18,12 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `app/(main)/page.val.ts`. The page auto-updates as you edit the file.
+
+## File structure
+
+It is recommended that all pages and layouts should be put under the (main) group (or another group you create yourself).
+The reason for this is to make sure the `(main)/layout.tsx` does not interfere with Val Studio.
 
 ## Val Studio
 

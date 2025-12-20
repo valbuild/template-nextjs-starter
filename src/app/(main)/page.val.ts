@@ -1,4 +1,4 @@
-import { s, c } from "../../val.config";
+import { s, c } from "../../../val.config";
 import { sections } from "./sectionSchema.val";
 
 const pageSchema = s.object({
@@ -7,7 +7,7 @@ const pageSchema = s.object({
   sections,
 });
 
-export default c.define("/src/app/page.val.ts", pageSchema, {
+export default c.define("/src/app/(main)/page.val.ts", pageSchema, {
   title: "Val Build Page",
   description:
     "This page is built with Val Build - the lightweight CMS where content is code.",
