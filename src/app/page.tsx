@@ -50,7 +50,7 @@ function DocsSection({ title, cards }: DocsSection) {
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {cards.map((card, i) => (
           <li key={i} className="p-4 rounded-md border border-gray-200">
-            <Link href={card.href}>
+            <Link href={card.href} target="_blank">
               <h3 className="text-lg font-bold">{card.title}</h3>
               <p className="text-sm text-gray-500">{card.description}</p>
             </Link>
