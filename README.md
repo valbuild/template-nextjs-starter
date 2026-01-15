@@ -26,7 +26,6 @@ This project follows the **TABS** architecture: **Typography, Atoms, Base, and S
 
 For detailed information about the TABS architecture, see [src/components/README.md](src/components/README.md).
 
-
 ## File structure
 
 It is recommended that all pages and layouts should be put under the (main) group (or another group you create yourself).

@@ -10,6 +10,7 @@ The architecture is defined by its constraints. Each layer has a clear responsib
 ## Layers
 
 ### T — Typography
+
 **Purpose:** Text primitives and typographic consistency.
 
 - Headings, paragraphs, inline text
@@ -18,12 +19,14 @@ The architecture is defined by its constraints. Each layer has a clear responsib
 - No CMS awareness
 
 **Examples:**
+
 - `Heading1`
 - `Paragraph`
 
 ---
 
 ### A — Atoms
+
 **Purpose:** Small, reusable UI elements users interact with.
 
 - Buttons, links, form controls
@@ -34,12 +37,14 @@ The architecture is defined by its constraints. Each layer has a clear responsib
 Atoms may depend on **Typography**, but nothing above.
 
 **Examples:**
+
 - `Button`
 - `Link`
 
 ---
 
 ### B — Base
+
 **Purpose:** Layout and structural primitives.
 
 - Grid, stack, container, spacing
@@ -50,6 +55,7 @@ Atoms may depend on **Typography**, but nothing above.
 Base components are used by Atoms and Sections to ensure consistent layout.
 
 **Examples:**
+
 - `Section` (layout wrapper)
 - `Grid`
 - `Container`
@@ -57,6 +63,7 @@ Base components are used by Atoms and Sections to ensure consistent layout.
 ---
 
 ### S — Sections
+
 **Purpose:** Vertically stacked, CMS-driven visual patterns.
 
 - Always stack vertically
@@ -68,6 +75,7 @@ Base components are used by Atoms and Sections to ensure consistent layout.
 Sections are replaceable and isolated. Removing one must not affect others.
 
 **Examples:**
+
 - `TitleTextSection`
 - `ImageTextSection`
 - `FeatureGridSection`
