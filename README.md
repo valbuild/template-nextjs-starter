@@ -20,6 +20,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/(main)/page.val.ts`. The page auto-updates as you edit the file.
 
+## Architecture
+
+This project follows the **TABS** architecture: **Typography, Atoms, Base, and Sections**. TABS is a content-driven, layered architecture where Pages are built by composing Sections, which in turn use Atoms, Base components, and Typography primitives. Each layer has clear responsibilities and strict dependency rules.
+
+For detailed information about the TABS architecture, see [src/components/README.md](src/components/README.md).
+
+
 ## File structure
 
 It is recommended that all pages and layouts should be put under the (main) group (or another group you create yourself).
