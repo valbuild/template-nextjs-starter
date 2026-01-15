@@ -1,5 +1,3 @@
 {
-  "recommendations": [
-    "valbuild.vscode-val-build"
-  ]
+  "recommendations": ["valbuild.vscode-val-build"]
 }
