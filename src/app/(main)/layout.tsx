@@ -34,7 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ValProvider config={config}>
+        <ValProvider config={config} suspend>
           <ValModulesClient />
           {children}
         </ValProvider>
