@@ -3,6 +3,7 @@ import { config } from "../../../val.config";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { fetchVal } from "@/val/val.rsc";
+import { ValModulesClient } from "@/val/ValModulesClient";
 import pageVal from "./page.val";
 
 const geistSans = Geist({
@@ -33,7 +34,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ValProvider config={config}>{children}</ValProvider>
+        <ValProvider config={config}>
+          <ValModulesClient />
+          {children}
+        </ValProvider>
       </body>
     </html>
   );
