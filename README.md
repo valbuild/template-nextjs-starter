@@ -1,19 +1,19 @@
 # {{projectName}}
 
-This is a [Val Build](https://val.build) bootstrapped with `npm create @valbuild`.
+This is a [Val Build](https://val.build) project bootstrapped with `npm create @valbuild` (or `pnpm create @valbuild`).
 
 ## Getting Started
 
-First, run the development server:
+Install the dependencies and run the development server with the package manager you want to use:
 
 ```bash
-npm run dev
+npm install && npm run dev
 # or
-yarn dev
+pnpm install && pnpm dev
 # or
-pnpm dev
+yarn && yarn dev
 # or
-bun dev
+bun install && bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -34,6 +34,18 @@ The reason for this is to make sure the `(main)/layout.tsx` does not interfere w
 ## Val Studio
 
 You can update and edit content directly in the Val Studio by going to [http://localhost:3000/val](http://localhost:3000/val).
+
+## Package manager
+
+npm and pnpm are both supported (as are yarn and bun) — nothing here is tied to
+one of them.
+
+`npm create @valbuild` / `pnpm create @valbuild` installs with the package
+manager you ran it with, and leaves exactly one lock file behind: the one that
+package manager wrote. That lock file is the project's. If you clone this
+template directly instead, the committed `package-lock.json` is npm's; to use a
+different package manager, delete it before installing so you do not end up with
+two lock files and only one of them real.
 
 ## Learn More
 
