@@ -13,7 +13,7 @@ export const sections = s.array(anySection);
 /**
  * Make the Val Studio list UI of sections nicer
  */
-export const sectionListRender = ({
+export const sectionListPreview = ({
   val,
 }: {
   val: SelectorOfSchema<typeof anySection>;
