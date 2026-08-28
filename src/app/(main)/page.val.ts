@@ -1,8 +1,8 @@
-import { sectionListRender } from "@/components/sections/anySection.val";
+import { sectionListPreview } from "@/components/sections/anySection.val";
 import { s, c, nextAppRouter } from "../../../val.config";
 import { imageTextSection } from "../../components/sections/imageTextSection.val";
 import { titleTextSection } from "../../components/sections/titleTextSection.val";
-import { metaRender, metaSchema } from "@/shared/meta.val";
+import { metaPreview, metaSchema } from "@/shared/meta.val";
 
 const mainPageSchema = s.object({
   meta: metaSchema,
@@ -15,19 +15,13 @@ const mainPageSchema = s.object({
         imageTextSection,
       ),
     )
-    .render({
-      as: "list",
-      select: sectionListRender,
-    }),
+    .preview(sectionListPreview),
 });
 
 export default c.define(
   "/src/app/(main)/page.val.ts",
-  s.router(nextAppRouter, mainPageSchema).render({
-    as: "list",
-    select: ({ val }) => {
-      return metaRender(val.meta);
-    },
+  s.router(nextAppRouter, mainPageSchema).preview(({ val }) => {
+    return metaPreview(val.meta);
   }),
   {
     "/": {

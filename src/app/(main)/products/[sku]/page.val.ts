@@ -1,7 +1,7 @@
-import { sectionListRender } from "@/components/sections/anySection.val";
+import { sectionListPreview } from "@/components/sections/anySection.val";
 import { imageTextSection } from "@/components/sections/imageTextSection.val";
 import { s, c, nextAppRouter } from "../../../../../val.config";
-import { metaRender, metaSchema } from "@/shared/meta.val";
+import { metaPreview, metaSchema } from "@/shared/meta.val";
 
 const productPageSchema = s.object({
   meta: metaSchema,
@@ -13,19 +13,13 @@ const productPageSchema = s.object({
         imageTextSection,
       ),
     )
-    .render({
-      as: "list",
-      select: sectionListRender,
-    }),
+    .preview(sectionListPreview),
 });
 
 export default c.define(
   "/src/app/(main)/products/[sku]/page.val.ts",
-  s.router(nextAppRouter, productPageSchema).render({
-    as: "list",
-    select: ({ val }) => {
-      return metaRender(val.meta);
-    },
+  s.router(nextAppRouter, productPageSchema).preview(({ val }) => {
+    return metaPreview(val.meta);
   }),
   {
     "/products/product-1": {

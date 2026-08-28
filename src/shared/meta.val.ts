@@ -8,7 +8,7 @@ export const metaSchema = s.object({
 
 export type MetaSchema = t.inferSchema<typeof metaSchema>;
 
-export const metaRender = (val: SelectorOfSchema<typeof metaSchema>) => {
+export const metaPreview = (val: SelectorOfSchema<typeof metaSchema>) => {
   return {
     title: val.title,
     description: val.description,

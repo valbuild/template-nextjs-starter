@@ -16,14 +16,11 @@ export const titleTextSection = s.object({
       }
       return false;
     })
-    .render({
-      as: "list",
-      select: ({ val }) => {
-        return {
-          title: val.label,
-          subtitle: val.href,
-        };
-      },
+    .preview(({ val }) => {
+      return {
+        title: val.label,
+        subtitle: val.href,
+      };
     }),
 });
 export type TitleTextSectionSchema = t.inferSchema<typeof titleTextSection>;
