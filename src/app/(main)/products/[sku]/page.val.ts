@@ -46,11 +46,12 @@ export default c.define(
               ],
             },
           ],
-          image: c.image("/public/val/globe.svg", {
+          image: {
+            path: "/public/val/globe.svg",
             width: 16,
             height: 16,
             mimeType: "image/svg+xml",
-          }),
+          },
         },
       ],
     },

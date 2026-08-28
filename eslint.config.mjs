@@ -1,20 +1,16 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
+import valbuild from "@valbuild/eslint-plugin";
 
 const eslintConfig = [
-  ...compat.extends(
-    "next/core-web-vitals",
-    "next/typescript",
-    "plugin:@valbuild/recommended",
-  ),
+  ...nextCoreWebVitals,
+  ...nextTypescript,
+  // @valbuild/eslint-plugin only ships a legacy (eslintrc) `recommended`
+  // config, so register the plugin and its rules directly for flat config.
+  {
+    plugins: { "@valbuild": valbuild },
+    rules: valbuild.configs.recommended.rules,
+  },
 ];
 
 export default eslintConfig;
