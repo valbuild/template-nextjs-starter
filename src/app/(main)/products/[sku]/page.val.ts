@@ -5,22 +5,27 @@ import { metaPreview, metaSchema } from "@/shared/meta.val";
 
 const productPageSchema = s.object({
   meta: metaSchema,
-  sections: s
-    .array(
-      s.union(
+  sections: s.array(
+    s
+      .union(
         "type",
         // Add other sections here
         imageTextSection,
-      ),
-    )
-    .preview(sectionListPreview),
+      )
+      .preview(sectionListPreview),
+  ),
 });
 
 export default c.define(
   "/src/app/(main)/products/[sku]/page.val.ts",
-  s.router(nextAppRouter, productPageSchema).preview(({ val }) => {
-    return metaPreview(val.meta);
-  }),
+  s.router(
+    nextAppRouter,
+    // The preview lives on the PAGE (the value being previewed), not on the
+    // router: the router's rows, search and references all read it from there.
+    productPageSchema.preview(({ val }) => {
+      return metaPreview(val.meta);
+    }),
+  ),
   {
     "/products/product-1": {
       meta: {
