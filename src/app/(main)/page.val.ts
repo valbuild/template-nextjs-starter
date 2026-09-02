@@ -6,23 +6,30 @@ import { metaPreview, metaSchema } from "@/shared/meta.val";
 
 const mainPageSchema = s.object({
   meta: metaSchema,
-  sections: s
-    .array(
-      s.union(
+  sections: s.array(
+    s
+      .union(
         "type",
         // Add other sections here
         titleTextSection,
         imageTextSection,
-      ),
-    )
-    .preview(sectionListPreview),
+      )
+      // The preview lives on the SECTION, the value being previewed - not on
+      // the array around it, which would preview the whole list as one value.
+      .preview(sectionListPreview),
+  ),
 });
 
 export default c.define(
   "/src/app/(main)/page.val.ts",
-  s.router(nextAppRouter, mainPageSchema).preview(({ val }) => {
-    return metaPreview(val.meta);
-  }),
+  s.router(
+    nextAppRouter,
+    // On the PAGE, for the same reason: a preview on the router would be handed
+    // the whole route record.
+    mainPageSchema.preview(({ val }) => {
+      return metaPreview(val.meta);
+    }),
+  ),
   {
     "/": {
       meta: {

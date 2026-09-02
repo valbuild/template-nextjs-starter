@@ -7,7 +7,16 @@ export const titleTextSection = s.object({
   title: s.string(),
   text: proseSchema,
   buttons: s
-    .array(linkButtonSchema)
+    .array(
+      // The preview lives on the BUTTON, the value being previewed: the array's
+      // rows read it from there.
+      linkButtonSchema.preview(({ val }) => {
+        return {
+          title: val.label,
+          subtitle: val.href,
+        };
+      }),
+    )
     .validate((buttons) => {
       if (buttons.length < 1) {
         return "At least one button is required";
@@ -15,12 +24,6 @@ export const titleTextSection = s.object({
         return "You can only add up to 3 buttons";
       }
       return false;
-    })
-    .preview(({ val }) => {
-      return {
-        title: val.label,
-        subtitle: val.href,
-      };
     }),
 });
 export type TitleTextSectionSchema = t.inferSchema<typeof titleTextSection>;
