@@ -8,6 +8,8 @@ export const titleTextSection = s.object({
   text: proseSchema,
   buttons: s
     .array(
+      // The preview lives on the BUTTON, the value being previewed: the array's
+      // rows read it from there.
       linkButtonSchema.preview(({ val }) => {
         return {
           title: val.label,

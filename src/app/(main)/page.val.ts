@@ -14,6 +14,8 @@ const mainPageSchema = s.object({
         titleTextSection,
         imageTextSection,
       )
+      // The preview lives on the SECTION, the value being previewed - not on
+      // the array around it, which would preview the whole list as one value.
       .preview(sectionListPreview),
   ),
 });
