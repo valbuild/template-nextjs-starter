@@ -22,8 +22,8 @@ export default c.define(
   "/src/app/(main)/products/[sku]/page.val.ts",
   s.router(
     nextAppRouter,
-    // On the PAGE, for the same reason: a preview on the router would be handed
-    // the whole route record.
+    // The preview lives on the PAGE (the value being previewed), not on the
+    // router: the router's rows, search and references all read it from there.
     productPageSchema.preview(({ val }) => {
       return metaPreview(val.meta);
     }),
