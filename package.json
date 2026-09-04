@@ -10,8 +10,8 @@
     "validate": "val validate --fix"
   },
   "dependencies": {
-    "@valbuild/core": "0.117.0",
-    "@valbuild/next": "0.117.0",
+    "@valbuild/core": "0.120.0",
+    "@valbuild/next": "0.120.0",
     "next": "16.3.3",
     "prettier": "^3.9.6",
     "react": "19.2.8",
@@ -22,7 +22,7 @@
     "@types/node": "26.4.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@valbuild/cli": "0.117.0",
+    "@valbuild/cli": "0.120.0",
     "@valbuild/eslint-plugin": "0.108.0",
     "eslint": "^9",
     "eslint-config-next": "16.3.3",
