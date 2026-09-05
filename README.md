@@ -59,7 +59,10 @@ claude mcp add --transport http val http://localhost:3000/api/mcp
 schemas first and is rejected outright if it would leave the content invalid, so
 an agent cannot break the site by editing it.
 
-`upload_image` adds an image to an `s.images()` gallery or an `s.image()` field.
+`upload_image` adds an image to an `s.images()` gallery or an `s.image()` field,
+including ones stored remotely (`s.images({ remote: true })`) — those upload to
+Val's content host when you publish, not when the agent adds them, so an agent
+needs nothing beyond what your app already has.
 It is the one tool with a dependency of its own — `sharp`, for reading an
 image's dimensions and re-encoding it — and it lives in
 [`src/val/mcp.images.ts`](src/val/mcp.images.ts), which says how to turn it off.
