@@ -2,8 +2,12 @@ import { RichTextNode, RichTextOptions } from "@valbuild/core";
 import { s, t } from "../../../val.config";
 
 const richTextOptions = {
-  style: { bold: true, italic: true },
-  block: { h2: true, h3: true, ul: true, ol: true },
+  bold: true,
+  italic: true,
+  h2: true,
+  h3: true,
+  ul: true,
+  ol: true,
 } satisfies RichTextOptions;
 export const proseSchema = s.richtext(richTextOptions);
 export type ProseSchema = t.inferSchema<typeof proseSchema>;
