@@ -4,25 +4,36 @@ import { imageTextSection } from "../../components/sections/imageTextSection.val
 import { titleTextSection } from "../../components/sections/titleTextSection.val";
 import { metaPreview, metaSchema } from "@/shared/meta.val";
 
-const mainPageSchema = s.object({
-  meta: metaSchema,
-  sections: s
-    .array(
-      s.union(
-        "type",
-        // Add other sections here
-        titleTextSection,
-        imageTextSection,
-      ),
-    )
-    .preview(sectionListPreview),
-});
+const mainPageSchema = s
+  .object({
+    meta: metaSchema,
+    sections: s.array(
+      s
+        .union(
+          "type",
+          // Add other sections here
+          titleTextSection,
+          imageTextSection,
+        )
+        // On the union, not the array: a container's `.preview()` describes the
+        // container since 0.109, and rows come from the item.
+        .preview(sectionListPreview),
+    ),
+  })
+  /**
+   * How one ROUTE reads in the Studio's list of pages. This used to hang off
+   * `s.router(...)`, which is a RecordSchema — and a record's own `.preview()`
+   * now describes the record, so `val` was the whole route map. `Record<string,
+   * Page>` indexed by `.meta` still type-checks and hands back a Page, which is
+   * why it surfaced as a type error rather than a wrong preview.
+   */
+  .preview(({ val }) => {
+    return metaPreview(val.meta);
+  });
 
 export default c.define(
   "/src/app/(main)/page.val.ts",
-  s.router(nextAppRouter, mainPageSchema).preview(({ val }) => {
-    return metaPreview(val.meta);
-  }),
+  s.router(nextAppRouter, mainPageSchema),
   {
     "/": {
       meta: {
