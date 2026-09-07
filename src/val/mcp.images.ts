@@ -1,3 +1,4 @@
+import "server-only";
 import { createValImageTools } from "@valbuild/mcp";
 import { sharpImageProcessor } from "@valbuild/mcp/sharp";
 import sharp from "sharp";

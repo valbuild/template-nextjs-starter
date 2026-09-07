@@ -17,8 +17,15 @@ import { valMcpAuthorize, valMcpTools } from "../../../val/mcp";
 
 const handler = createMcpHandler(
   async (server) => {
-    // Listing needs no credential, so the tools are registered once at startup
-    // rather than per request. Only calling them is per-caller.
+    // `mcp-handler` is stateless: it builds a fresh `McpServer` per request and
+    // runs this, so registration is per request, not once at startup. That is
+    // cheap and deliberately left alone — the expensive half, loading the
+    // modules and building the tools, is memoised inside `initValMcp` and
+    // happens once for the process however many requests arrive. What repeats
+    // is the `registerTool` loop.
+    //
+    // Listing needs no credential, which is why it can happen out here at all.
+    // Only CALLING a tool is per-caller, below.
     const tools = await valMcpTools();
     for (const tool of tools.list()) {
       server.registerTool(
