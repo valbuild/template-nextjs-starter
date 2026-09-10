@@ -1,0 +1,15 @@
+# unrs-resolver (pulled in by eslint-config-next) declares a postinstall that
+# fetches its native binding as a fallback. pnpm blocks dependency install
+# scripts by default and warns about every one it blocked, so without this a
+# fresh `pnpm install` ends on "Ignored build scripts: unrs-resolver".
+#
+# The script is not needed here: unrs-resolver ships prebuilt bindings for 22
+# platforms as optional dependencies, so pnpm has already installed the right
+# one and `pnpm run lint` works with the script skipped. Listing it here says
+# "skipped on purpose" and drops the warning, rather than granting a package
+# permission to run code at install time that it does not need.
+#
+# This lives in pnpm-workspace.yaml rather than under a "pnpm" key in
+# package.json because pnpm 11 stopped reading that key.
+ignoredBuiltDependencies:
+  - unrs-resolver
